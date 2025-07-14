@@ -39,5 +39,7 @@ n3b = bytes(lista1)
 # print(__builtins__)
 # print(divmod(45,7))
 # eval("print('porra')")
-print(globals())
-print(locals())
+# print(globals())
+# print(locals())
+
+
