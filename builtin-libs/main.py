@@ -18,13 +18,17 @@ nome: str = "We&&p€𔐖lton"
 numero1 = 46437
 numero2 = 215
 
-n1b = numero1.to_bytes()
-n2b = numero2.to_bytes()
+lista1 = [181, 215]
 
-print(n1b)
-print(n2b)
+# n1b = numero1.to_bytes()
+# n2b = numero2.to_bytes()
+n3b = bytes(lista1)
+
+# print(n1b)
+# print(n2b)
+print(n3b)
 
 # print(bytt)
 # print(type(bytt))
 # print(bytt.hex())
-# print(bytt.count(25))
+print(n3b.count(215))
