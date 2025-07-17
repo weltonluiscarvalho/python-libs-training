@@ -15,7 +15,7 @@ my_hash_hexdigest = my_hash.hexdigest()
 
 my_new_hash = hashlib.new('sha256')
 my_new_hash.update(b'crypto\n')
-print(my_new_hash.hexdigest())
+# print(my_new_hash.hexdigest())
 # print(my_new_hash.hexdigest())
 
 
@@ -28,4 +28,7 @@ print(my_new_hash.hexdigest())
 with open('cryptographic/file.txt', 'rb') as file:
     hash_file = hashlib.file_digest(file, 'sha-256')
     
-print(hash_file.hexdigest())
+# print(hash_file.hexdigest())
+
+another_kind_of_hash = hashlib.pbkdf2_hmac('sha256', b'crypto', b'sal grosso', 25)
+print(another_kind_of_hash.hex())
