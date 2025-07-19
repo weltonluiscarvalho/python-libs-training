@@ -1,4 +1,5 @@
 import hashlib
+import tkinter as tk
 
 my_hash = hashlib.sha256()
 my_hash.update(b"sexo")
@@ -32,3 +33,8 @@ with open('cryptographic/file.txt', 'rb') as file:
 
 another_kind_of_hash = hashlib.pbkdf2_hmac('sha256', b'crypto', b'sal grosso', 25)
 print(another_kind_of_hash.hex())
+
+root = tk.Tk()
+root.geometry("800x500")
+
+root.mainloop()
