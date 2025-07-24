@@ -13,6 +13,7 @@ my_hash_hexdigest = my_hash.hexdigest()
 # print(my_hash_hexdigest)
 # print(type(my_hash_digest))
 # adicionando algo para o commit diario
+# adicionando mais um commit diario hehe
 
 my_new_hash = hashlib.new('sha256')
 my_new_hash.update(b'crypto\n')
