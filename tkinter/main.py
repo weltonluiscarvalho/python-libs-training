@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tela_inicial import TelaInicial
 
 class AtributoDominioBox:
     def __init__(self, parent):
@@ -33,6 +34,8 @@ menubar.add_cascade(menu=menu_atendimento, label="Atendimento")
 
 menu_atendimento.add_command(label="Pendencias")
 menu_atendimento.add_command(label="Habilidades")
-atributo_dominio_box = AtributoDominioBox(root)
-atributo_dominio_box = AtributoDominioBox(root)
+# atributo_dominio_box = AtributoDominioBox(root)
+# atributo_dominio_box = AtributoDominioBox(root)
+tela_inicial = TelaInicial(root)
+tela_inicial.grid()
 root.mainloop()
