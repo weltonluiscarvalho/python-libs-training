@@ -5,6 +5,9 @@ class AtributoDominioBox:
     def __init__(self, parent):
         frame = ttk.Frame(parent)
         frame.grid()
+        frame['relief'] = 'sunken'
+        frame['borderwidth'] = 2
+        frame['padding'] = 10
         categoria_label = ttk.Label(frame, text="Categoria")
         categoria_label.grid(column=0, row=0)
         dominio_categoria_label = ttk.Label(frame, text="Dominio Categoria")
