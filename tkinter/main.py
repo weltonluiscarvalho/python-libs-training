@@ -1,6 +1,13 @@
 from tkinter import *
 from tkinter import ttk
-from tela_inicial import TelaInicial
+from tela_inicial import TelaInicial, TelaCadastrarHabilidades
+
+frames = {}
+
+def mostrar_tela(nome_tela):
+    frame = frames[nome_tela]
+    frame.tkraise()
+
 
 class AtributoDominioBox:
     def __init__(self, parent):
@@ -36,6 +43,14 @@ menu_atendimento.add_command(label="Pendencias")
 menu_atendimento.add_command(label="Habilidades")
 # atributo_dominio_box = AtributoDominioBox(root)
 # atributo_dominio_box = AtributoDominioBox(root)
-tela_inicial = TelaInicial(root)
-tela_inicial.grid()
+
+for tela in (TelaInicial, TelaCadastrarHabilidades):
+    frame = tela(root)
+    frames[tela.__name__] = frame
+    frame.grid(row=0, column=0, sticky="nsew")
+
+mostrar_tela("TelaInicial")
+
+# tela_inicial = TelaInicial(root)
+# tela_inicial.grid()
 root.mainloop()
