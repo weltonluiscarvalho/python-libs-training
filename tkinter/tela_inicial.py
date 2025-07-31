@@ -1,6 +1,29 @@
 from tkinter import *
 from tkinter import ttk
 
+
+class GerenciadorTelas(ttk.Frame):
+
+    # Como o Widget precisa saber o pai no momento da criacao, o gerenciador de telas deve criar o widget, ai fica a questão
+    # como o gerenciador de telas, trocara a tela atual? Ele destruira a tela atual, e criara outra? Ou ele apenas coloca a outra
+    # sobreposta? Ou ele apenas retira a visibilidade de uma tela e mostra a de tras?
+    def __init__(self, parent) -> None:
+        super().__init__(parent)
+        self.telas = dict()
+        self.tela_atual = None
+
+    def mudar_tela(self, tela):
+        self.tela_atual = tela
+
+    def adicionar_tela_lista(self, nome_tela, tela):
+        self.telas[nome_tela] = tela
+
+    def remover_tela_lista(self, nome_tela):
+        self.telas.pop(nome_tela)
+
+    def atualizar_lista_telas(self):
+        print(self.grid_info())
+
 class TelaInicial(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)

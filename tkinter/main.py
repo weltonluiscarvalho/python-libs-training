@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from tela_inicial import TelaInicial, TelaCadastrarHabilidades
+from tela_inicial import TelaInicial, TelaCadastrarHabilidades, GerenciadorTelas
 
 frames = {}
 
@@ -50,6 +50,9 @@ for tela in (TelaInicial, TelaCadastrarHabilidades):
     frame.grid(row=0, column=0, sticky="nsew")
 
 mostrar_tela("TelaInicial")
+
+gerenciador_telas = GerenciadorTelas(root)
+gerenciador_telas.atualizar_lista_telas()
 
 # tela_inicial = TelaInicial(root)
 # tela_inicial.grid()
