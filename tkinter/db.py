@@ -16,6 +16,110 @@ VESTIMENTA_TECIDO_TABLE_NAME = 'vestimenta_tecido_table'
 VESTIMENTA_LAVAGEM_TABLE_NAME = 'vestimenta_lavagem_table'
 TECIDO_TIPO_LAVAGEM_TABLE_NAME = 'tecido_tipo_lavagem_table'
 
+def insert_tecido_tipo_lavagem(id_tecido, id_tipo_lavagem):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {TECIDO_TIPO_LAVAGEM_TABLE_NAME}(id_tecido, id_tipo_lavagem) "
+        f"VALUES({id_tecido}, {id_tipo_lavagem})"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+def insert_vestimenta_lavagem(id_vestimenta, id_lavagem):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {VESTIMENTA_LAVAGEM_TABLE_NAME}(id_vestimenta, id_lavagem) "
+        f"VALUES({id_vestimenta}, {id_lavagem})"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+def insert_vestimenta_tecido(id_vestimenta, id_tecido):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {VESTIMENTA_TECIDO_TABLE_NAME}(id_vestimenta, id_tecido) "
+        f"VALUES({id_vestimenta}, {id_tecido})"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+def insert_vestimenta_uso(id_uso, id_vestimenta):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {VESTIMENTA_USO_TABLE_NAME}(id_uso, id_vestimenta) "
+        f"VALUES({id_uso}, {id_vestimenta})"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+def insert_vestimenta(cor, data_aquisicao, indicador_vestimenta_em_uso, id_tipo_vestimenta, id_marca):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {VESTIMENTA_TABLE_NAME}(cor, data_aquisicao, indicador_vestimenta_em_uso, id_tipo_vestimenta, id_marca) "
+        f"VALUES('{cor}', '{data_aquisicao}', {indicador_vestimenta_em_uso}, {id_tipo_vestimenta}, {id_marca})"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+def insert_uso(data_uso, id_tipo_uso):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {USO_TABLE_NAME}(data_uso, id_tipo_uso) "
+        f"VALUES('{data_uso}', {id_tipo_uso})"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+def insert_lavagem(data_lavagem, id_tipo_lavagem):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {LAVAGEM_TABLE_NAME}(data_lavagem, id_tipo_lavagem) "
+        f"VALUES('{data_lavagem}', {id_tipo_lavagem})"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+def insert_tecido(nome_tecido, descricao_tecido, data_inclusao):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"INSERT INTO {TECIDO_TABLE_NAME}(nome_tecido, descricao_tecido, data_inclusao) "
+        f"VALUES('{nome_tecido}', '{descricao_tecido}', '{data_inclusao}')"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
 def insert_tipo_vestimenta(nome_tipo_vestimenta, quantidade_tipo_vestimenta):
     conn = sqlite3.connect(DIR_NAME / FILE_NAME)
     cursor = conn.cursor()
@@ -201,4 +305,12 @@ create_tables()
 # insert_marca("adidas", "02/08/2025")
 # insert_tipo_uso("Dormir", "02/08/2025")
 # insert_tipo_lavagem("Na Maquina", "02/08/2025")
-insert_tipo_vestimenta("Camisa", 5)
+# insert_tipo_vestimenta("Camisa", 5)
+# insert_tecido("Algodao", "Tecido firme e de facil lavagem", "03/08/2025")
+# insert_lavagem("03/08/2025", 1)
+# insert_uso("03/08/2025", 1)
+# insert_vestimenta("preto", "03/08/2025", 1, 1, 1)
+# insert_vestimenta_uso(1, 2)
+# insert_vestimenta_tecido(1, 1)
+# insert_vestimenta_lavagem(1, 1)
+# insert_tecido_tipo_lavagem(1, 1)
