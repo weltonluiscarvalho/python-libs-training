@@ -1,18 +1,55 @@
 from tkinter import *
 from tkinter import ttk
+import db
 
+class TelaCadastrarTipoUso(ttk.Frame):
+    def __init__(self, parent, gerenciador):
+        super().__init__(parent)
+
+        self.gerenciador = gerenciador
+        self.label_descricao_tipo_uso = ttk.Label(self, text="Descricao Tipo Uso")
+        self.label_descricao_tipo_uso.grid(row=0, column=0)
+
+        self.variable_entry_descricao_tipo_uso = StringVar()
+        self.entry_descricao_tipo_uso = ttk.Entry(self, textvariable=self.variable_entry_descricao_tipo_uso)
+        self.entry_descricao_tipo_uso.grid(row=1, column=0)
+
+        self.label_data_inclusao = ttk.Label(self, text="Data Inclusao")
+        self.label_data_inclusao.grid(row=2, column=0)
+
+        self.variable_entry_data_inclusao = StringVar()
+        self.entry_data_inclusao = ttk.Entry(self, textvariable=self.variable_entry_data_inclusao)
+        self.entry_data_inclusao.grid(row=3, column=0)
+        # self.variable_entry_descricao_habilidade = StringVar()
+        # self.entry_descricao_habilidade = ttk.Entry(self, textvariable=self.variable_entry_descricao_habilidade)
+        # self.entry_descricao_habilidade.grid(row=3, column=0)
+
+        self.botao_cadastrar_descricao_tipo_uso = ttk.Button(self, text="Cadastrar", command=self.cadastrar_tipo_uso)
+        self.botao_cadastrar_descricao_tipo_uso.grid(row=4, pady=10)
+          
+        self.botao_consultar_habilidades = ttk.Button(self, text="Voltar para tela inicial", command=self.voltar_tela_inicial)
+        self.botao_consultar_habilidades.grid(row=5, pady=10)
+
+    def cadastrar_tipo_uso(self):
+        descricao = self.variable_entry_descricao_tipo_uso.get()
+        data_inclusao = self.variable_entry_data_inclusao.get()
+        db.insert_tipo_uso(descricao, data_inclusao)
+        print("tipo uso inserido com sucesso")
+
+    def voltar_tela_inicial(self):
+        self.gerenciador.alterar_tela_atual('TelaInicial')
 
 class GerenciadorTelas:
 
     def __init__(self, parent) -> None:
         self.telas = dict()
 
-        for ClasseTela in (TelaInicial, TelaCadastrarHabilidades):
+        for ClasseTela in (TelaInicial, TelaCadastrarHabilidades, TelaCadastrarTipoUso):
             objeto_tela = ClasseTela(parent, self)
             self.telas[ClasseTela.__name__] = objeto_tela
             objeto_tela.grid(row=0, column=0, sticky="nsew")
 
-        self.alterar_tela_atual('TelaInicial')
+        self.alterar_tela_atual('TelaCadastrarTipoUso')
 
     def alterar_tela_atual(self, nome_tela):
         if nome_tela in self.telas.keys():
