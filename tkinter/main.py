@@ -8,11 +8,8 @@ root.option_add('*tearOff', FALSE)
 menubar = Menu(root)
 root['menu'] = menubar
 
-menu_home = Menu(menubar)
-menu_atendimento = Menu(menubar)
-menubar.add_cascade(menu=menu_home, label="Home")
-menubar.add_cascade(menu=menu_atendimento, label="Atendimento")
-
-menu_atendimento.add_command(label="Pendencias")
-menu_atendimento.add_command(label="Habilidades")
+menu_telas = Menu(menubar)
+menubar.add_cascade(menu=menu_telas, label="Telas")
+menu_telas.add_command(label="Cadastrar Tipo Uso", command=lambda: gerenciador_telas.alterar_tela_atual("TelaCadastrarTipoUso"))
+menu_telas.add_command(label="Cadastrar Tipo Vestimenta", command=lambda: gerenciador_telas.alterar_tela_atual("TelaCadastrarTipoVestimenta"))
 root.mainloop()
