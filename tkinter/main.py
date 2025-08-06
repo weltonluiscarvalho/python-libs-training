@@ -3,6 +3,10 @@ from tkinter import ttk
 from tela_inicial import GerenciadorTelas
 
 root = Tk()
+root.rowconfigure(0, weight=1)
+root.columnconfigure(0, weight=1)
+root.minsize(500, 800)
+root.maxsize(500, 800)
 gerenciador_telas = GerenciadorTelas(root)
 root.option_add('*tearOff', FALSE)
 menubar = Menu(root)
