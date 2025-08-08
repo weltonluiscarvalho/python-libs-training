@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import font
 from tkinter import ttk
 import db
 from datetime import datetime
@@ -104,14 +105,14 @@ class TelaCadastrarTipoUso(ttk.Frame):
         super().__init__(parent)
 
         self.gerenciador = gerenciador
-        self.frame_place_holder_top = ttk.Frame(self, relief='sunken', borderwidth=2, width=10, height=10)
+        self.frame_place_holder_top = ttk.Frame(self, relief='sunken', borderwidth=2)
         self.frame_place_holder_top.grid(row=0, column=0)
-        self.label_descricao_tipo_uso = ttk.Label(self, text="Descricao Tipo Uso")
+        self.label_descricao_tipo_uso = ttk.Label(self, text="Descricao Tipo Uso", anchor='center', font='TimesNewRoman 25 italic')
         self.label_descricao_tipo_uso.grid(row=1, column=0, sticky='nwse', padx=80)
 
         self.variable_entry_descricao_tipo_uso = StringVar()
         self.entry_descricao_tipo_uso = ttk.Entry(self, textvariable=self.variable_entry_descricao_tipo_uso)
-        self.entry_descricao_tipo_uso.grid(row=2, column=0, sticky='nwse', padx=80)
+        self.entry_descricao_tipo_uso.grid(row=2, column=0, sticky='we', padx=80)
 
         self.botao_cadastrar_descricao_tipo_uso = ttk.Button(self, text="Cadastrar", command=self.cadastrar_tipo_uso)
         self.botao_cadastrar_descricao_tipo_uso.grid(row=3, pady=10, sticky='nwse', padx=80)
@@ -122,12 +123,12 @@ class TelaCadastrarTipoUso(ttk.Frame):
         self.frame_place_holder_bottom = ttk.Frame(self)
         self.frame_place_holder_bottom.grid(row=5, column=0)
         self.columnconfigure(0, weight=1)
-        self.rowconfigure(0, weight=4)
-        self.rowconfigure(1, weight=1)
+        self.rowconfigure(0, weight=6)
+        self.rowconfigure(1, weight=2)
         self.rowconfigure(2, weight=1)
-        self.rowconfigure(3, weight=1)
-        self.rowconfigure(4, weight=1)
-        self.rowconfigure(5, weight=4)
+        self.rowconfigure(3, weight=2)
+        self.rowconfigure(4, weight=2)
+        self.rowconfigure(5, weight=6)
 
     def cadastrar_tipo_uso(self):
         descricao = self.variable_entry_descricao_tipo_uso.get()
