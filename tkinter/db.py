@@ -169,6 +169,24 @@ def insert_tipo_uso(descricao, data):
     cursor.close()
     conn.close()
 
+def list_tipo_uso():
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"SELECT * FROM {TIPO_USO_TABLE_NAME}"
+    )
+
+    resultado = cursor.fetchall()
+    print(resultado)
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+    return resultado
+
+
 
 def create_tables():
     conn = sqlite3.connect(DIR_NAME / FILE_NAME)
