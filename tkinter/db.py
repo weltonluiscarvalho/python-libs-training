@@ -178,7 +178,6 @@ def list_tipo_uso():
     )
 
     resultado = cursor.fetchall()
-    print(resultado)
     conn.commit()
 
     cursor.close()

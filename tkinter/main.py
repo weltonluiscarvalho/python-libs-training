@@ -1,8 +1,10 @@
 from tkinter import *
 from tkinter import ttk
+import ttkbootstrap as ttkb
+import ttkbootstrap.constants as ttkb_const
 from tela_inicial import GerenciadorTelas
 
-root = Tk()
+root = ttkb.Window(themename='superhero')
 root.rowconfigure(0, weight=1)
 root.columnconfigure(0, weight=1)
 root.minsize(500, 800)

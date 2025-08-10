@@ -1,8 +1,11 @@
 from tkinter import *
 from tkinter import font
 from tkinter import ttk
+import ttkbootstrap as ttkb
+import ttkbootstrap.constants as ttkb_const
 import db
 from datetime import datetime
+from home import HomeScreen
 
 class TelaListarTipoUso(ttk.Frame):
     def __init__(self, parent, gerenciador):
@@ -132,9 +135,9 @@ class TelaCadastrarTipoUso(ttk.Frame):
         super().__init__(parent)
 
         self.gerenciador = gerenciador
-        self.frame_place_holder_top = ttk.Frame(self, relief='sunken', borderwidth=2)
+        self.frame_place_holder_top = ttkb.Frame(self, relief='sunken', borderwidth=2)
         self.frame_place_holder_top.grid(row=0, column=0)
-        self.label_descricao_tipo_uso = ttk.Label(self, text="Descricao Tipo Uso", anchor='center', font='TimesNewRoman 25 italic')
+        self.label_descricao_tipo_uso = ttkb.Label(self, text="Descricao Tipo Uso", anchor='center', font='TimesNewRoman 25 italic')
         self.label_descricao_tipo_uso.grid(row=1, column=0, sticky='nwse', padx=80)
 
         self.variable_entry_descricao_tipo_uso = StringVar()
@@ -173,12 +176,12 @@ class GerenciadorTelas:
 
         for ClasseTela in (TelaInicial, TelaCadastrarHabilidades, TelaCadastrarTipoUso, 
                            TelaCadastrarTipoVestimenta, TelaCadastrarTipoLavagem, TelaCadastrarTecido,
-                           TelaListarTipoUso):
+                           TelaListarTipoUso, HomeScreen):
             objeto_tela = ClasseTela(parent, self)
             self.telas[ClasseTela.__name__] = objeto_tela
             objeto_tela.grid(row=0, column=0, sticky="nsew")
 
-        self.alterar_tela_atual('TelaInicial')
+        self.alterar_tela_atual('HomeScreen')
 
     def alterar_tela_atual(self, nome_tela):
         if nome_tela in self.telas.keys():
