@@ -4,8 +4,6 @@ import ttkbootstrap as ttkb
 import ttkbootstrap.constants as ttkb_const
 from tela_inicial import GerenciadorTelas
 
-
-
 root = ttkb.Window(themename='superhero')
 root.rowconfigure(0, weight=1)
 root.columnconfigure(0, weight=1)
