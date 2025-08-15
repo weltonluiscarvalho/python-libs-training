@@ -7,6 +7,8 @@ from ttkbootstrap.scrolled import ScrolledFrame
 # class HomeScreen(ScrolledFrame):
 #     pass 
 
+
+
 app = ttkb.Window(themename="darkly")
 
 sf = ScrolledFrame(app, autohide=True)
