@@ -16,6 +16,18 @@ VESTIMENTA_TECIDO_TABLE_NAME = 'vestimenta_tecido_table'
 VESTIMENTA_LAVAGEM_TABLE_NAME = 'vestimenta_lavagem_table'
 TECIDO_TIPO_LAVAGEM_TABLE_NAME = 'tecido_tipo_lavagem_table'
 
+def delete_tipo_uso(id_tipo_uso):
+    conn = sqlite3.connect(DIR_NAME / FILE_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"DELETE FROM {TIPO_USO_TABLE_NAME} WHERE id_tipo_uso == {id_tipo_uso}"
+    )
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
 def insert_tecido_tipo_lavagem(id_tecido, id_tipo_lavagem):
     conn = sqlite3.connect(DIR_NAME / FILE_NAME)
     cursor = conn.cursor()
