@@ -5,6 +5,7 @@ from tkinter import ttk
 from tela_inicial import GerenciadorTelas
 
 
+
 root = Tk() 
 root.rowconfigure(0, weight=1)
 root.columnconfigure(0, weight=1)
