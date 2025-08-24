@@ -1,3 +1,4 @@
+from ast import UnaryOp, main
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import ttk
@@ -22,39 +23,48 @@ app.geometry('300x500')
 app.resizable(False, False)
 check_num_wrapper = (app.register(check_num), '%P')
 
-label1 = ttk.Label(master=app, text='Nome da tarefa')
-label1.pack()
+main_frame = ttk.Frame(app)
+main_frame.pack(expand=True)
 
-entry_variable = ctk.StringVar(value="teste")
-entry = ttk.Entry(master=app, textvariable=entry_variable)
-entry.pack()
+register_task_frame = ttk.Frame(main_frame)
+register_task_frame.columnconfigure((0), weight=2, uniform='a')
+register_task_frame.columnconfigure((1), weight=1, uniform='a')
+register_task_frame.rowconfigure((0,1), weight=1, uniform='a')
+register_task_frame.pack(padx=20, expand=True)
+list_task_frame = ttk.Frame(main_frame)
+list_task_frame.pack(expand=True, fill='both')
 
-# Frame that will join date and hour related widgets
-# data_hora_frame = ttk.Frame(master=app)
-# data_hora_frame.pack()
+task_name_label = ttk.Label(master=register_task_frame, text='Nome da tarefa')
+task_name_label.grid(column=0, row=0, columnspan=5, sticky='w')
 
+task_name_entry_variable = ctk.StringVar()
+task_name_entry = ttk.Entry(master=register_task_frame, textvariable=task_name_entry_variable)
+task_name_entry.grid(column=0, row=1, columnspan=5, sticky='ew')
 
-entry_data_frame = ttk.Frame(master=app)
-entry_data_frame.rowconfigure((0,1), weight=1, uniform='a')
-entry_data_frame.columnconfigure((0,2,3), weight=1, uniform='a')
-entry_data_frame.columnconfigure(1, weight=3, uniform='a')
-entry_data_frame.pack(side='left', padx=20)
+#########################################################################################
+task_data_frame = ttk.Frame(register_task_frame)
+task_data_frame.grid(column=0, row=2, padx=(0,10), pady=(20,0))
 
-label_data = ttk.Label(master=entry_data_frame, text='data', anchor='center')
-label_data.grid(column=0, row=0, sticky='news')
+task_data_label = ttk.Label(master=task_data_frame, text='data', anchor='center')
+task_data_label.pack(side='left')
 
-entry_data_variable = tk.StringVar()
-entry_data = ttk.Entry(master=entry_data_frame, textvariable=entry_data_variable, validate='focusout', validatecommand=check_num_wrapper)
-entry_data.grid(column=1, row=0, sticky='news')
+task_data_entry_variable = tk.StringVar()
+task_data_entry = ttk.Entry(master=task_data_frame, textvariable=task_data_entry_variable, validate='focusout', validatecommand=check_num_wrapper)
+task_data_entry.pack(side='left')
 
-entry_data_error_label = ttk.Label(master=entry_data_frame, text='a data deve estar\n no formato dd/mm/aaaa')
-entry_data_error_label.grid(column=1, row=1, sticky='news')
+entry_data_error_label = ttk.Label(master=register_task_frame, text='a data deve estar\n no formato dd/mm/aaaa')
+entry_data_error_label.grid(column=0, row=3, columnspan=2, sticky='news')
 
-label_hora = ttk.Label(master=entry_data_frame, text='hora', anchor='center')
-label_hora.grid(column=2, row=0, sticky='news')
+###########################################################################################
 
-entry_hora_variable = tk.StringVar(value='12:20')
-entry_hora = ttk.Entry(master=entry_data_frame, textvariable=entry_hora_variable)
-entry_hora.grid(column=3, row=0, sticky='news')
+task_hour_frame = ttk.Frame(register_task_frame)
+task_hour_frame.grid(column=1, row=2, pady=(20,0))
+
+task_hour_label = ttk.Label(master=task_hour_frame, text='hora', anchor='center')
+task_hour_label.pack(side='left')
+
+task_hour_entry_variable = tk.StringVar(value='12:20')
+task_hour_entry = ttk.Entry(master=task_hour_frame, textvariable=task_hour_entry_variable)
+task_hour_entry.pack(side='left')
 
 app.mainloop()
