@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-# import ttkbootstrap as ttkb
-# import ttkbootstrap.constants as ttkb_const
-from tela_inicial import GerenciadorTelas
+from screen_manager import GerenciadorTelas
 
 
 

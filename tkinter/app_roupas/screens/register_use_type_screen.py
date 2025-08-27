@@ -15,6 +15,7 @@ class TelaListarTipoUso(ttk.Frame):
         self.scrollbar = ttk.Scrollbar(self, orient=tk.HORIZONTAL, command=self.treeview.xview)
         self.treeview.configure(xscrollcommand=self.scrollbar.set)
         tipos_usos = db.list_tipo_uso()
+        print(tipos_usos)
 
 
         for tipo_uso in tipos_usos:
@@ -31,7 +32,11 @@ class TelaListarTipoUso(ttk.Frame):
 
         self.botao_apagar = ttk.Button(self, text="Apagar selecionado", command=self.delete_item)
         self.botao_apagar.pack(side="top")
-        
+
+    def on_focus(self):
+        for item in self.treeview.get_children():
+            self.treeview.delete(item)
+            
     def delete_item(self):
         # self.treeview.delete(item)
         print(self.treeview.selection())
@@ -75,7 +80,6 @@ class TelaCadastrarTipoUso(ttk.Frame):
         descricao = self.variable_entry_descricao_tipo_uso.get()
         data_inclusao = datetime.now().strftime("%d/%m/%Y")
         db.insert_tipo_uso(descricao, data_inclusao)
-        print("tipo uso inserido com sucesso")
 
     def voltar_tela_inicial(self):
         self.gerenciador.alterar_tela_atual('TelaInicial')
