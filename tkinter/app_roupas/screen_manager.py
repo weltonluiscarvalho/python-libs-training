@@ -1,5 +1,5 @@
 from screens import (TelaCadastrarTecido, TelaCadastrarTipoLavagem, TelaCadastrarTipoVestimenta,
-                    TelaCadastrarHabilidades, TelaInicial, TelaCadastrarTipoUso, TelaListarTipoUso)
+                    TelaCadastrarMarca, TelaInicial, TelaCadastrarTipoUso, TelaListarTipoUso)
 
 
 class GerenciadorTelas:
@@ -7,7 +7,7 @@ class GerenciadorTelas:
     def __init__(self, parent) -> None:
         self.telas = dict()
 
-        for ClasseTela in (TelaInicial, TelaCadastrarHabilidades, TelaCadastrarTipoUso, 
+        for ClasseTela in (TelaInicial, TelaCadastrarMarca, TelaCadastrarTipoUso, 
                            TelaCadastrarTipoVestimenta, TelaCadastrarTipoLavagem, TelaCadastrarTecido,
                            TelaListarTipoUso):
             objeto_tela = ClasseTela(parent, self)

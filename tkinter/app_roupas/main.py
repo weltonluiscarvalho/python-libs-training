@@ -21,4 +21,5 @@ menu_telas.add_command(label="Listar Tipo Uso", command=lambda: gerenciador_tela
 menu_telas.add_command(label="Cadastrar Tipo Vestimenta", command=lambda: gerenciador_telas.alterar_tela_atual("TelaCadastrarTipoVestimenta"))
 menu_telas.add_command(label="Cadastrar Tipo Lavagem", command=lambda: gerenciador_telas.alterar_tela_atual("TelaCadastrarTipoLavagem"))
 menu_telas.add_command(label="Cadastrar Tecido", command=lambda: gerenciador_telas.alterar_tela_atual("TelaCadastrarTecido"))
+menu_telas.add_command(label="Cadastrar Marca", command=lambda: gerenciador_telas.alterar_tela_atual("TelaCadastrarMarca"))
 root.mainloop()
