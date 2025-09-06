@@ -1,5 +1,5 @@
 from screens import (TelaCadastrarTecido, TelaCadastrarTipoLavagem, TelaCadastrarTipoVestimenta,
-                    TelaCadastrarMarca, TelaInicial, TelaCadastrarTipoUso, TelaListarTipoUso)
+                    TelaCadastrarMarca, TelaInicial, TelaCadastrarTipoUso, TelaListarTipoUso, TelaListarMarca)
 
 
 class GerenciadorTelas:
@@ -9,7 +9,7 @@ class GerenciadorTelas:
 
         for ClasseTela in (TelaInicial, TelaCadastrarMarca, TelaCadastrarTipoUso, 
                            TelaCadastrarTipoVestimenta, TelaCadastrarTipoLavagem, TelaCadastrarTecido,
-                           TelaListarTipoUso):
+                           TelaListarTipoUso, TelaListarMarca):
             objeto_tela = ClasseTela(parent, self)
             self.telas[ClasseTela.__name__] = objeto_tela
             objeto_tela.grid(row=0, column=0, sticky="nsew")

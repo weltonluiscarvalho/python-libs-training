@@ -15,8 +15,6 @@ class TelaListarTipoUso(ttk.Frame):
         self.scrollbar = ttk.Scrollbar(self, orient=tk.HORIZONTAL, command=self.treeview.xview)
         self.treeview.configure(xscrollcommand=self.scrollbar.set)
         tipos_usos = db.list_tipo_uso()
-        print(tipos_usos)
-
 
         for tipo_uso in tipos_usos:
             item = self.treeview.insert("", "end", text=tipo_uso[1])
